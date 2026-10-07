@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hotel Room Booking</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <h1>Room Desk</h1>
+  <p>Add rooms, find free ones for your dates, and manage guest bookings.</p>
+</header>
+
+<main>
+  <section class="panel" aria-labelledby="search-h">
+    <h2 id="search-h">Find a room</h2>
+    <div class="row">
+      <label>Room type
+        <select id="s-type"><option value="">Any</option><option>Single</option><option>Double</option><option>Deluxe</option><option>Suite</option></select>
+      </label>
+      <label>Check-in <input type="date" id="s-in"></label>
+      <label>Check-out <input type="date" id="s-out"></label>
+      <button id="s-btn" class="primary">Search rooms</button>
+      <button id="s-clear">Show all</button>
+    </div>
+    <p id="s-msg" class="msg" role="status"></p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Room</th><th>Type</th><th>Price / night</th><th>Today</th><th></th></tr></thead>
+        <tbody id="rooms"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="book-h">
+    <h2 id="book-h">Book a room</h2>
+    <p id="chosen" class="hint">Choose a room from the list, then enter guest details.</p>
+    <form id="book-form" class="row" autocomplete="off">
+      <label>Guest name <input id="b-guest" required></label>
+      <label>Check-in <input type="date" id="b-in" required></label>
+      <label>Check-out <input type="date" id="b-out" required></label>
+      <button class="primary" type="submit">Book room</button>
+    </form>
+    <p id="b-msg" class="msg" role="status"></p>
+  </section>
+
+  <section class="panel" aria-labelledby="bookings-h">
+    <h2 id="bookings-h">Current bookings</h2>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>Guest</th><th>Room</th><th>Check-in</th><th>Check-out</th><th>Nights</th><th>Total</th><th></th></tr></thead>
+        <tbody id="bookings"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="panel" aria-labelledby="add-h">
+    <h2 id="add-h">Add a room</h2>
+    <form id="room-form" class="row" autocomplete="off">
+      <label>Room number <input id="r-no" required></label>
+      <label>Type
+        <select id="r-type"><option>Single</option><option>Double</option><option>Deluxe</option><option>Suite</option></select>
+      </label>
+      <label>Price / night <input id="r-price" type="number" min="1" step="1" required></label>
+      <button class="primary" type="submit">Add room</button>
+    </form>
+    <p id="r-msg" class="msg" role="status"></p>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
